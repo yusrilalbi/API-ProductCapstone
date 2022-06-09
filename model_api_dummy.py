@@ -3,8 +3,8 @@ import json
 
 app = Flask(__name__)
 
-# with open("label.json") as f:
-#     label = json.load(f)
+with open("label.json") as f:
+    label = json.load(f)
     
 @app.route('/')
 def index():
@@ -13,6 +13,6 @@ def index():
 @app.route('/predict',methods=['GET','POST'])
 def predict():
     
-    return "jsonify(label)"
+    return jsonify(label)
 if __name__ == '__main__':
     app.run(debug=True)
